@@ -59,11 +59,11 @@ Release Week Checklist:
 - [ ] **Update release notes** (_automate_* - github workflow to create update for [release notes page](https://adoptium.net/release_notes.html))
 - [ ] **Trigger linux installers pipeline** currently it is part of the build pipelines (will eventually be updated to run independently)
 - [ ] **Publicize the release** via Slack #release channel and Twitter (can be partially automated)
-- [ ] **Trigger docker images pipeline** via the [GitHub Actions job](https://github.com/AdoptOpenJDK/openjdk-docker/actions/workflows/updater.yml). Click Run Workflow, keep the branch as Master and click `Run Workflow`. This updater job checks the API and updates the relevant dockerfiles. A Pull Request is then created by the adoptopenjdk-bot account which will need merging once all the CI tests pass.  *TBD - how this step evolves for Temurin releases.
 - [ ] **Declare code freeze end** opening up the code for further development
 - [ ] **Remove website banner** (_automate_* via github workflow in website repository)
 - [ ] **Declare the release complete** and close this issue
 
 To reinstate Later
 
+  - [ ] **Trigger docker images pipeline** via the [GitHub Actions job](https://github.com/AdoptOpenJDK/openjdk-docker/actions/workflows/updater.yml). Click Run Workflow, keep the branch as Master and click `Run Workflow`. This updater job checks the API and updates the relevant dockerfiles. A Pull Request is then created by the adoptopenjdk-bot account which will need merging once all the CI tests pass.  *TBD - how this step evolves for Temurin releases.
 - [ ] **Update Official Docker Images** Once the dockerfiles have been updated in the previous step you can run the `dockerhub_doc_config_update.sh` script. This will create a file called adoptopenjdk which will need to be copy and pasted into the [official adoptopenjdk config](https://github.com/docker-library/official-images/blob/master/library/adoptopenjdk) (example PR https://github.com/docker-library/official-images/pull/10083) *TBD - how this step evolves for Temurin releases.
