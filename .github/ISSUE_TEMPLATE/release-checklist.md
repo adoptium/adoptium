@@ -57,7 +57,6 @@ Release Week Checklist:
 - [ ] **Verify binaries published successfully** to github releases repo and website (_automate_*, this could also be an automated test)
 - [ ] **Update support page** (_automate_* github workflow to create a PR to update [support.handlebars](https://github.com/adoptium/adoptium.net/blob/master/src/handlebars/support.handlebars))
 - [ ] **Update release notes** (_automate_* - github workflow to create update for [release notes page](https://adoptium.net/release_notes.html))
-- [ ] **Run homebrew-cask_updater** (via [GitHub actions Updater job](https://github.com/AdoptOpenJDK/homebrew-openjdk/actions/workflows/updater.yml)) once binaries published successfully (this can be automated / triggered by a test for published artifacts)
 - [ ] **Trigger linux installers pipeline** currently it is part of the build pipelines (will eventually be updated to run independently)
 - [ ] **Publicize the release** via Slack #release channel and Twitter (can be partially automated)
 - [ ] **Trigger docker images pipeline** via the [GitHub Actions job](https://github.com/AdoptOpenJDK/openjdk-docker/actions/workflows/updater.yml). Click Run Workflow, keep the branch as Master and click `Run Workflow`. This updater job checks the API and updates the relevant dockerfiles. A Pull Request is then created by the adoptopenjdk-bot account which will need merging once all the CI tests pass.  *TBD - how this step evolves for Temurin releases.
