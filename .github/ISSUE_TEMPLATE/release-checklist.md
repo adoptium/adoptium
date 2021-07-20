@@ -52,7 +52,7 @@ Release Week Checklist:
   - jdk11 triage summary:
   - jdkxx triage summary:
 - [ ] **Fix** blocking failures if they exist and confirm others are non-blocking.
-- [ ] **Get TSC 'ready to publish' approval**, once no blocking failures exist.
+- [ ] **Get PMC 'ready to publish' approval**, once no blocking failures exist.
 - [ ] **Publish the release** (run the restricted access [release tool job](https://ci.adoptopenjdk.net/job/build-scripts/job/release/job/refactor_openjdk_release_tool/) on Jenkins)
 - [ ] **Verify binaries published successfully** to github releases repo and website (_automate_*, this could also be an automated test)
 - [ ] **Update support page** (_automate_* github workflow to create a PR to update [support.handlebars](https://github.com/AdoptOpenJDK/openjdk-website/blob/master/src/handlebars/support.handlebars))
