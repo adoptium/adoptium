@@ -6,4 +6,6 @@ We embrace existing standards and a wide variety of hardware and cloud platforms
 
 This organization provides a home for Git repositories that implement of the Adoptium Working Group and the Eclipse Adoptium top level project.
 
-Please see the [Eclipse Adoptium Project](https://projects.eclipse.org/projects/adoptium).
+Please see the [Eclipse Adoptium Project](https://projects.eclipse.org/projects/adoptium) for more information regarding the Adoptium top-level project or its sub-projects (visually depicted in the diagram below).
+
+![Extra Projects](images/AdoptiumCoreRepoRelationshipsDiagram.png)
