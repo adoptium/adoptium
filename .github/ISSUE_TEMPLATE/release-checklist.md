@@ -55,7 +55,7 @@ Release Week Checklist:
 - [ ] **Get PMC 'ready to publish' approval**, once no blocking failures exist.
 - [ ] **Publish the release** (run the restricted access [release tool job](https://ci.adoptopenjdk.net/job/build-scripts/job/release/job/refactor_openjdk_release_tool/) on Jenkins)
 - [ ] **Verify binaries published successfully** to github releases repo and website (_automate_*, this could also be an automated test)
-- [ ] **Update support page** (_automate_* github workflow to create a PR to update [support.handlebars](https://github.com/AdoptOpenJDK/openjdk-website/blob/master/src/handlebars/support.handlebars))
+- [ ] **Update support page** (_automate_* github workflow to create a PR to update [support.handlebars](https://github.com/adoptium/adoptium.net/blob/master/src/handlebars/support.handlebars))
 - [ ] **Update release notes** (_automate_* - github workflow to create update for [release notes page](https://adoptium.net/release_notes.html))
 - [ ] **Run homebrew-cask_updater** (via [GitHub actions Updater job](https://github.com/AdoptOpenJDK/homebrew-openjdk/actions/workflows/updater.yml)) once binaries published successfully (this can be automated / triggered by a test for published artifacts)
 - [ ] **Trigger linux installers pipeline** currently it is part of the build pipelines (will eventually be updated to run independently)
@@ -65,4 +65,3 @@ Release Week Checklist:
 - [ ] **Declare code freeze end** opening up the code for further development
 - [ ] **Remove website banner** (_automate_* via github workflow in website repository)
 - [ ] **Declare the release complete** and close this issue
-
