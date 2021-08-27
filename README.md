@@ -9,6 +9,10 @@ This organization provides a home for Git repositories that implement of the Ado
 * The [Eclipse Temurin Compliance project](https://projects.eclipse.org/projects/adoptium.temurin-compliance).
 * The [Eclipse Mission Control project](https://projects.eclipse.org/projects/adoptium.mc).
 
+**NOTE:** The high-level tracking for the Eclipse Temurin binaries is in the [adoptium repo issue tracking](https://www.github.com/adoptium/adoptium/issues).
+
+----
+
 Please see the [Eclipse Adoptium Project](https://projects.eclipse.org/projects/adoptium) for more information regarding the Adoptium top-level project or its sub-projects (visually depicted in the diagram below).
 
 ![Extra Projects](images/AdoptiumCoreRepoRelationshipsDiagram.png)
