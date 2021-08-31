@@ -25,7 +25,7 @@ Java-based applications. We embrace existing standards and a wide variety of har
 
 ## Eclipse Adoptium Top Level Project
 
-The mission of the Eclipse Adoptium Top-Level Project is to produce high-quality runtimes and associated technology for use within the Java ecosystem.  We achieve this through a set of Projects under the Adoptium PMC and a close working partnership with external projects, most notably OpenJDK for providing the Java SE runtime implementation. Our goal is to meet the needs of both the Eclipse community and broader runtime users by providing a comprehensive set of technologies around runtimes for Java applications that operate alongside existing standards, infrastructures, and cloud platforms.
+The mission of the Eclipse Adoptium Top-Level Project is to distribute high-quality runtimes and associated technology for use within the Java ecosystem.  We achieve this through a set of Projects under the Adoptium PMC and a close working partnership with external projects, most notably OpenJDK for providing the Java SE runtime implementation. Our goal is to meet the needs of both the Eclipse community and broader runtime users by providing a comprehensive set of technologies around runtimes for Java applications that operate alongside existing standards, infrastructures, and cloud platforms.
 
 ## Eclipse AQAvit project
 
