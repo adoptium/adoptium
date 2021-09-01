@@ -14,6 +14,7 @@ A bulleted list of all proposed agenda items in this issue (whether at the top o
 Invited: Everyone.
 
 Retrospective Owner Tasks (in order):
+
 - [ ] Post this issue's URL on the \#Release Slack channel around the start of the new release.
 - [ ] Copy actions from the previous retrospective into this issue, while ignoring actions that have an issue link (i.e. clearly-completed actions).
 - [ ] Wait until all builds have been released, with no clear signs of additional respins.
