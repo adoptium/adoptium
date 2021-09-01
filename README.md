@@ -1,6 +1,6 @@
 # Eclipse Adoptium
 
-This organization provides a home for Git repositories that implement of the Adoptium Working Group, The Eclipse Adoptium Top Level Project and several Eclipse projects that fall under that top level project:
+This organization provides a home for Git repositories that implement of the Adoptium Working Group, the Eclipse Adoptium Top Level Project and several Eclipse projects that fall under that top level project:
 
 * The [Eclipse Adoptium top level project](https://projects.eclipse.org/projects/adoptium).
 * The [Eclipse Adoptium incubator project](https://projects.eclipse.org/projects/adoptium.incubator).
