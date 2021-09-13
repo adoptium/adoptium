@@ -24,7 +24,6 @@ One Week Prior to Release:
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
 - [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process
 - [ ] **Disable nightly testing** to free up resources and ensure no competing jobs during release week
-- [ ] **Update list of CA certificates** if required, following this [security/README](https://github.com/adoptium/temurin-build/blob/master/security/README.md)
 - [ ] **Run a trial release pipeline** to ensure less surprises on release day (typically against a milestone build)
 
 -------
