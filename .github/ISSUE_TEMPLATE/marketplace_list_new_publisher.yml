@@ -1,0 +1,82 @@
+name: New Marketplace Publisher Listing
+description: Open a request to become a new publisher in the Adoptium Marketplace
+title: "[Marketplace]: "
+labels: ["marketplace", "publisher"]
+assignees:
+  - tellison
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for Publishers who wish to be included in the [Adoptium Marketplace](https://www.adoptium.net/TODO/marketplace.html).
+        The criteria for being included in the Marketplace is described on the Working Ggroup website, and Publishers are encouraged
+        to read through material and engage with the Working Group before submitting a new request.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Please confirm the following criteria have been met before continuing:
+  - type: checkboxes
+    id: working_group_member
+    attributes:
+      label: Adoptium Working Group Member
+      description: |
+        Marketplace Producers must be a Participant, Enterprise or Strategic Member of the Adoptium Working Group.
+        Eligible members, and information about joining the Working Group are [listed on our website](https://adoptium.net/members.html).
+        The Working Group will check with the Eclipse Foundation your membership is in place before your Publisher listing is approved.
+      options:
+        - label: Eligible Adoptium Working Group Member
+          required: true
+  - type: checkboxes
+    id: publisher_agreement
+    attributes:
+      label: Adoptium Marketplace Publisher Agreement
+      description: |
+        You have executed and agree to conform to the [Adoptium Marketplace Publisher Agreement](https://www.adoptium.net/TODO/marketplace_agreement.html).
+        The Working Group will check with the Eclipse Foundation this agreement is in place before your Publisher listing is approved.
+      options:
+        - label: Adoptium Marketplace Publisher Agreement executed
+          required: true
+  - type: input
+    id: publisher_logo
+    attributes:
+      label: Publisher Logo
+      description: |
+        Provide a link to a logo that identifies you as a Publisher in the marketplace.
+        The logo should be 400px x 400px for optimal rendering.
+      placeholder: "https://www.example.com/logo.jpg"
+    validations:
+      required: true
+  - type: input
+    id: metadata_location
+    attributes:
+      label: Link to Product listing
+      description: |
+        Provide a link to your marketplace listing information.
+      placeholder: "https://www.example.com/adoptium_marketplace_data.json"
+    validations:
+      required: true
+  - type: input
+    id: signature_location
+    attributes:
+      label: Link to Product listing signature.
+      description: |
+        Provide a link to your detached base64-encoded marketplace listing information signature.
+      placeholder: "https://www.example.com/adoptium_marketplace_data.json.sig"
+    validations:
+      required: true
+  - type: textarea
+     id: public_key
+     attributes:
+       label: Publisher public key.
+        description: |
+          Provide the public key of the keypair used to sign the marketplace listing information.
+     validations:
+       required: true
