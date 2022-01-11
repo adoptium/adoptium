@@ -73,10 +73,10 @@ body:
     validations:
       required: true
   - type: textarea
-     id: public_key
-     attributes:
-       label: Publisher public key.
-        description: |
-          Provide the public key of the keypair used to sign the marketplace listing information.
-     validations:
-       required: true
+    id: public_key
+    attributes:
+      label: Publisher public key.
+      description: |
+        Provide the public key of the keypair used to sign the marketplace listing information.
+    validations:
+      required: true
