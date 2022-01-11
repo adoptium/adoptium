@@ -67,7 +67,7 @@ body:
   - type: input
     id: signature_location
     attributes:
-      label: Link to Product listing signature.
+      label: Link to Product listing signature
       description: |
         Provide a link to your detached base64-encoded marketplace listing information signature.
       placeholder: "https://www.example.com/adoptium_marketplace_data.json.sig"
@@ -76,9 +76,10 @@ body:
   - type: textarea
     id: public_key
     attributes:
-      label: Publisher public key.
+      label: Publisher public key
       description: |
         Provide the public key of the keypair used to sign the marketplace listing information.
+      placeholder: Paste public key here
     validations:
       required: true
   - type: input
