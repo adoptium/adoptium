@@ -1,4 +1,4 @@
-name: New Marketplace Publisher Listing
+name: New Marketplace Publisher
 description: Open a request to become a new publisher in the Adoptium Marketplace
 title: "[Marketplace]: "
 labels: ["marketplace", "publisher"]
@@ -8,8 +8,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        This form is for Publishers who wish to be included in the [Adoptium Marketplace](https://www.adoptium.net/TODO/marketplace.html).
-        The criteria for being included in the Marketplace is described on the Working Ggroup website, and Publishers are encouraged
+        This form is only for Publishers who wish to be included in the [Adoptium Marketplace](https://www.adoptium.net/TODO/marketplace.html).
+        
+        The criteria for being included in the Marketplace is [described on the Working Group website](https://www.adoptium.net/TODO/marketplace_criteria.html). Publishers are encouraged
         to read through material and engage with the Working Group before submitting a new request.
   - type: input
     id: contact
@@ -28,8 +29,8 @@ body:
     attributes:
       label: Adoptium Working Group Member
       description: |
-        Marketplace Producers must be a Participant, Enterprise or Strategic Member of the Adoptium Working Group.
-        Eligible members, and information about joining the Working Group are [listed on our website](https://adoptium.net/members.html).
+        Marketplace Publishers must be a Participant, Enterprise or Strategic Member of the Adoptium Working Group.
+        A list of eligible members, and information about joining the Working Group are [available on our website](https://adoptium.net/members.html).
         The Working Group will check with the Eclipse Foundation your membership is in place before your Publisher listing is approved.
       options:
         - label: Eligible Adoptium Working Group Member
@@ -39,7 +40,7 @@ body:
     attributes:
       label: Adoptium Marketplace Publisher Agreement
       description: |
-        You have executed and agree to conform to the [Adoptium Marketplace Publisher Agreement](https://www.adoptium.net/TODO/marketplace_agreement.html).
+        To be listed in the marketplace you must conform to the [Adoptium Marketplace Publisher Agreement](https://www.adoptium.net/TODO/marketplace_agreement.html). [Contact the Eclipse Foundation](mailto:license@eclipse.org?subject=[adoptium]%20Adoptium%20Marketplace%20Publisher%20Agreement) to execute a publisher agreement. 
         The Working Group will check with the Eclipse Foundation this agreement is in place before your Publisher listing is approved.
       options:
         - label: Adoptium Marketplace Publisher Agreement executed
@@ -49,7 +50,7 @@ body:
     attributes:
       label: Publisher Logo
       description: |
-        Provide a link to a logo that identifies you as a Publisher in the marketplace.
+        Provide a link to a logo that identifies you as a Publisher and your listings in the marketplace.
         The logo should be 400px x 400px for optimal rendering.
       placeholder: "https://www.example.com/logo.jpg"
     validations:
@@ -80,3 +81,12 @@ body:
         Provide the public key of the keypair used to sign the marketplace listing information.
     validations:
       required: true
+  - type: input
+    id: post_download_page
+    attributes:
+      label: Post download page
+      description: |
+        Provide a link to a page that will be displayed after a user starts downloading a binary from the marketplace. This page may be used to thank the user, offer support offerings, and so on.
+      placeholder: "https://www.example.com/adoptium_downloading.html"
+    validations:
+      required: false
