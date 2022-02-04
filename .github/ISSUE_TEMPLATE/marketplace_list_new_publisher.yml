@@ -8,18 +8,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        This form is only for Publishers who wish to be included in the [Adoptium Marketplace](https://www.adoptium.net/TODO/marketplace.html).
+        This form is only for Publishers who wish to be included in the [Adoptium Marketplace](https://www.adoptium.net/marketplace).
         
-        The criteria for being included in the Marketplace is [described on the Working Group website](https://www.adoptium.net/TODO/marketplace_criteria.html). Publishers are encouraged
-        to read through material and engage with the Working Group before submitting a new request.
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
+        The criteria for being included in the Marketplace is [described on the project website](https://www.adoptium.net/marketplace-policy). Publishers are encouraged to read through material and engage with the Working Group before submitting a new request.
   - type: markdown
     attributes:
       value: |
@@ -40,7 +31,7 @@ body:
     attributes:
       label: Adoptium Marketplace Publisher Agreement
       description: |
-        To be listed in the marketplace you must conform to the [Adoptium Marketplace Publisher Agreement](https://www.adoptium.net/TODO/marketplace_agreement.html). This formal agreement has important information about requirements for the binaries that are listed in the marketplace, including AQAvit and TCK obligations. [Contact the Eclipse Foundation](mailto:license@eclipse.org?subject=[adoptium]%20Adoptium%20Marketplace%20Publisher%20Agreement) to execute a publisher agreement. 
+        To be listed in the marketplace you must conform to the [Adoptium Marketplace Publisher Agreement](https://www.eclipse.org/TODO/adoptium_marketplace_agreement.html). This formal agreement has important information about requirements for the binaries that are listed in the marketplace, including AQAvit and TCK obligations. [Contact the Eclipse Foundation](mailto:license@eclipse.org?subject=[adoptium]%20Adoptium%20Marketplace%20Publisher%20Agreement) to execute a publisher agreement. 
         The Working Group will check with the Eclipse Foundation this agreement is in place before your Publisher listing is approved.
       options:
         - label: Adoptium Marketplace Publisher Agreement executed
