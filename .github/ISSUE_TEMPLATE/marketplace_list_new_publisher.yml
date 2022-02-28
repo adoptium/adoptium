@@ -51,8 +51,8 @@ body:
     attributes:
       label: Link to Product listing 
       description: |
-        Provide a link to your marketplace listing top level index.
-      placeholder: "https://www.example.com/adoptium_marketplace_data/index.json"
+        Provide a link to your marketplace listing [top level index](https://www.adoptium.net/docs/marketplace-listing/#_simple_product_listing_repository).
+      placeholder: "https://www.example.com/adoptium_marketplace/index.json"
     validations:
       required: true
   - type: textarea
@@ -60,7 +60,7 @@ body:
     attributes:
       label: Publisher public key
       description: |
-        Provide the public key of the keypair used to sign marketplace listing information.
+        Provide the public key of the keypair used to [sign marketplace listing information](https://www.adoptium.net/docs/marketplace-listing/#_signature_files).
       placeholder: Paste public key here
     validations:
       required: true
