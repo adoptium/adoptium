@@ -34,7 +34,7 @@ body:
         To be listed in the marketplace you must conform to the [Eclipse Adoptium Marketplace Publisher Agreement](https://www.eclipse.org/legal/documents/eclipse-adoptium-marketplace-publisher-agreement.pdf). This formal agreement has important information about requirements for the binaries that are listed in the marketplace, including AQAvit and TCK obligations. [Contact the Eclipse Foundation](mailto:license@eclipse.org?subject=[adoptium]%20Adoptium%20Marketplace%20Publisher%20Agreement) to execute a publisher agreement. 
         The Working Group will check with the Eclipse Foundation this agreement is in place before your Publisher listing is approved.
       options:
-        - label: Adoptium Marketplace Publisher Agreement executed
+        - label: Adoptium Marketplace Publisher Agreement Executed
           required: true
   - type: input
     id: publisher_logo
@@ -49,7 +49,7 @@ body:
   - type: input
     id: metadata_location
     attributes:
-      label: Link to Product listing 
+      label: Link to Product Listing Information
       description: |
         Provide a link to your marketplace listing [top level index](https://www.adoptium.net/docs/marketplace-listing/#_simple_product_listing_repository).
       placeholder: "https://www.example.com/adoptium_marketplace/index.json"
@@ -58,7 +58,7 @@ body:
   - type: textarea
     id: public_key
     attributes:
-      label: Publisher public key
+      label: Publisher Public Key
       description: |
         Provide the public key of the keypair used to [sign marketplace listing information](https://www.adoptium.net/docs/marketplace-listing/#_signature_files).
       placeholder: Paste public key here
@@ -67,9 +67,9 @@ body:
   - type: input
     id: post_download_page
     attributes:
-      label: Post download page
+      label: Post Download Page
       description: |
-        Provide a link to a page that will be displayed after a user starts downloading a binary from the marketplace. This page may be used to thank the user, offer support offerings, and so on.
+        Provide a link to a page that will be displayed after a user starts downloading a binary from the marketplace. [This page](https://www.adoptium.net/docs/marketplace-guide/#_post_download_page) may be used to thank the user, offer support offerings, and so on.
       placeholder: "https://www.example.com/adoptium_downloading.html"
     validations:
       required: false
