@@ -15,7 +15,7 @@ This organization provides a home for Git repositories that contain the activiti
 
 Please see the [Eclipse Adoptium Project](https://projects.eclipse.org/projects/adoptium) description for more information regarding the Adoptium top-level project or its sub-projects (visually depicted in the diagram below).
 
-![Extra Projects](images/AdoptiumCoreRepoRelationshipsDiagram.png)
+![Extra Projects](images/repository-overview.png)
 
 ## Eclipse Adoptium Working Group
 
