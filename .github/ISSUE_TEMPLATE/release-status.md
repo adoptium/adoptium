@@ -9,9 +9,12 @@ assignees: ''
 
 Sharing information in this issue since the TCK work is being tracked in temurin-compliance private repo not visible to the community (as per the OCTLA).  Risks and expectations for timing on the release are listed in this [issue comment](https://github.com/adoptium/adoptium/issues/3#issuecomment-866903922).  Primary platforms (x64 Linux/Windows/OSX) in **bold** are prioritized, secondary platforms not in bold follow in no particular order (as machine resources are available).
 
-✅ results in these Tables means the activity has successfully completed.
+✔️ results in these Tables means the activity has successfully completed.
+
 ⏳ results means that we are actively working on closing off the runs needed for this version, platform, binaryType.
+
 ⛔ means there is no build planned for that version/platform combination.
+
 ⏸️ means activity not yet started.
 
 ### JDK8uXXX-bXX
