@@ -62,6 +62,7 @@ body:
       description: |
         Provide the public key of the keypair used to [sign marketplace listing information](https://www.adoptium.net/docs/marketplace-listing/#_signature_files).
       placeholder: Paste public key here
+      render: shell
     validations:
       required: true
   - type: input
