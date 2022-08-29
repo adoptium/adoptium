@@ -18,61 +18,61 @@ Sharing information in this issue since the TCK work is being tracked in temurin
 ⏸️ means activity not yet started.
 
 ### JDK8uXXX-bXX
-| Platform | jdk8 AQA | jdk8 TCK | jdk8 installers | jdk8 images | jdk8 published | Notes |
-| -----  | ----- | ----- | ----- | ----- | ----- | ----- |
-| **x64 Linux** | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| **x64 Windows** | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| **x64 Mac** | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
-| aarch64 Linux | ⏸️  | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppcle64 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppc64 AIX | ⏸️ | ⏸️ | ⛔ | ⛔ |  |  |
-| x32 Windows | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
-| arm32 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| x64 alpine-Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  | This will be a headless build |
-| sparcv9 solaris | ⏸️ | ⏸️ | ⛔  | ⛔ |  |  |
-| x86 solaris |  ⏸️   | ⏸️   | ⛔  | ⛔ |  |  |
+| Platform  | jdk8 AQA  | jdk8 TCK  | jdk8 published | jdk8 installers  | jdk8 images   | Notes |
+| -----     | -----     | -----     | -----          | -----            | -----         | ----- |
+| **x64 Linux** | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| **x64 Windows** | ⏸️   | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| **x64 Mac** | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔            |       |
+| aarch64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| ppcle64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| ppc64 AIX | ⏸️         | ⏸️         | ⏸️              | ⛔               | ⛔            |       |
+| x32 Windows | ⏸️       | ⏸️         | ⏸️              | ⛔               | ⏸️             |       |
+| arm32 Linux | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| x64 alpine-Linux | ⏸️  | ⏸️         | ⏸️              | ⏸️                | ⏸️             | This will be a headless build |
+| sparcv9 solaris | ⏸️   | ⏸️         | ⏸️              | ⛔               | ⛔            |       |
+| x86 solaris | ⏸️       | ⏸️         | ⏸️              | ⛔               | ⛔            |       |
 
 ### JDK11.0.XX+Y
-| Platform | jdk11 AQA | jdk11 TCK | jdk11 installers | jdk11 images | jdk11 published | Notes |
-| ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| **x64 Linux** | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| **x64 Windows** | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| **x64 Mac** | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
-| aarch64 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppcle64 Linux |  ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| s390x Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppc64 AIX | ⏸️ | ⏸️ | ⛔ |⛔ |  |  |
-| x32 Windows | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
-| arm32 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| x64 alpine-Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  | This will be a headless build |
-| aarch64 Mac | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
+| Platform | jdk11 AQA | jdk11 TCK  | jdk11 published| jdk11 installers | jdk11 images  | Notes |
+| -----    | -----     | -----      | -----          | -----            | -----         | ----- |
+| **x64 Linux** | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| **x64 Windows** | ⏸️   | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| **x64 Mac** | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔            |       |
+| aarch64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| ppcle64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| s390x Linux   | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| ppc64 AIX | ⏸️         | ⏸️         | ⏸️              | ⛔               | ⛔            |       |
+| x32 Windows | ⏸️       | ⏸️         | ⏸️              | ⏸                | ⛔            |       |
+| arm32 Linux | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| x64 alpine-Linux | ⏸️  | ⏸️         | ⏸️              | ⏸️                | ⏸️             | This will be a headless build |
+| aarch64 Mac | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔            |       |
 
 ### JDK17.0.XX+Y
-| Platforms | jdk17 AQA | jdk17 TCK | jdk17 installers | jdk17 images | jdk17 published | Notes |
-| ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| **x64 Linux**| ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| **x64 Windows** | ⏸️ | ⏸️ | ⏸️  | ⏸️  |  |  |
-| **x64 Mac** | ⏸️ | ⏸️ | ⏸️  | ⛔ |  |  |
-| aarch64 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppcle64 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| s390x Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppc64 AIX| ⏸️ | ⏸️ | ⛔ |⛔  |  |  |
-| x32 Windows | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
-| arm32 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| x64 alpine-Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  | This will be a headless build |
-| aarch64 Mac | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
+| Platforms | jdk17 AQA | jdk17 TCK | jdk17 published| jdk17 installers | jdk17 images | Notes |
+| -----     | -----     | -----     | -----          | -----            | -----        | ----- |
+| **x64 Linux** | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️            |       |
+| **x64 Windows** | ⏸️   | ⏸️         | ⏸️              | ⏸️                | ⏸️            |       |
+| **x64 Mac** | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔           |       |
+| aarch64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️            |       |
+| ppcle64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️            |       |
+| s390x Linux   | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️            |       |
+| ppc64 AIX | ⏸️         | ⏸️         | ⏸️              | ⛔               | ⛔           |       |
+| x32 Windows | ⏸️       | ⏸️         | ⏸️              | ⏸                | ⛔           |       |
+| arm32 Linux | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⏸️            |       |
+| x64 alpine-Linux | ⏸️  | ⏸️         | ⏸️              | ⏸️                | ⏸️            | This will be a headless build |
+| aarch64 Mac | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔           |       |
 
 ### JDK18.0.XX+Y
-| Platform | jdk18 AQA | jdk18 TCK | jdk18 installers | jdk18 images | jdk18 published | Notes |
-| ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| **x64 Linux**| ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| **x64 Windows** | ⏸️ | ⏸️ | ⏸️  | ⏸️  |  |  |
-| **x64 Mac** | ⏸️ | ⏸️ | ⏸️  | ⛔ |  |  |
-| aarch64 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppcle64 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| s390x Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| ppc64 AIX| ⏸️ | ⏸️ | ⛔ |⛔  |  |  |
-| x32 Windows | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
-| arm32 Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  |  |
-| x64 alpine-Linux | ⏸️ | ⏸️ | ⏸️ | ⏸️ |  | This will be a headless build |
-| aarch64 Mac | ⏸️ | ⏸️ | ⏸️ | ⛔ |  |  |
+| Platform  | jdk18 AQA | jdk18 TCK | jdk18 published| jdk18 installers | jdk18 images  | Notes |
+| -----     | -----     | -----     | -----          | -----            | -----         | ----- |
+| **x64 Linux** | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| **x64 Windows** | ⏸️   | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| **x64 Mac** | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔            |       |
+| aarch64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| ppcle64 Linux | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| s390x Linux   | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| ppc64 AIX | ⏸️         | ⏸️         | ⏸️              | ⛔               | ⛔            |       |
+| x32 Windows | ⏸️       | ⏸️         | ⏸️              | ⏸                | ⛔            |       |
+| arm32 Linux | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
+| x64 alpine-Linux | ⏸️  | ⏸️         | ⏸️              | ⏸️                | ⏸️             | This will be a headless build |
+| aarch64 Mac | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔            |       |
