@@ -28,6 +28,7 @@ One Week Prior to Release:
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
 - [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process
 - [ ] **Disable nightly testing** to free up resources and ensure no competing jobs during release week
+- [ ] **Update aqaReference** to update with new git tag for 'aqaReference' to be used in release pipeline
 - [ ] **Run a trial release pipeline** to ensure less surprises on release day (typically against a milestone build)
 
 -------
@@ -58,7 +59,8 @@ Release Week Checklist:
 - [ ] **Triage** each build and test failure in the release summary report (following the [Triage guidelines](https://github.com/adoptium/aqa-tests/blob/master/doc/Triage.md)) and determine blocking or non-blocking.  Supply links to triage issues or docs for each version here.
   - jdk8 triage summary:
   - jdk11 triage summary:
-  - jdkxx triage summary:
+  - jdk17 triage summary:
+  - jdkXX triage summary:
 - [ ] **Fix** blocking failures if they exist and confirm others are non-blocking.
 - [ ] **Confirm Temurin-compliance items completed**, per platform/version/binaryType
 - [ ] **Get PMC 'ready to publish' approval**, once no blocking failures exist.
