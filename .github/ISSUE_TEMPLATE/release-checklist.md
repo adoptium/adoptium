@@ -26,7 +26,21 @@ Everyone participating in a release, including the release champion are requeste
 One Week Prior to Release:
 
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
-- [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process
+- [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
+  
+<details>
+<summary>Code Freeze message</summary>
+
+With under a week to go until releases, we are entering a lockdown period for the following repositories: <a href='https://github.com/adoptium/temurin-build/pulls'>temurin-build</a>, <a href='https://github.com/adoptium/ci-jenkins-pipelines/pulls'>ci-jenkins-pipelines</a>, <a href='https://github.com/adoptium/github-release-scripts/pulls'>github-release-scripts</a>, <a href='https://github.com/adoptium/containers/pulls'>containers</a>, <a href='https://github.com/adoptium/installer/pulls'>installer</a>.
+If you need to submit a pr for any of these repos during this period, you should:
+  <ul>
+  <li>Add a comment saying “Approval to merge during the lockdown cycle please” and post in the appropriate slack channel for awareness. This can be done before the PR is finalised</li>
+  <li>Add a note into this channel saying you are requesting the approval with a link to the comment in the first bullet point</li>
+  <li>The comment should have approval from at least one build committer and one TSC member to indicate that they agree it is critical that it goes in</li>
+  <li>The PR can be merged after 2 hours of the post going into the build channel (to give people time to object ... This delay may be skipped in the case where the delay will result in something breaking within that time.</li>
+  </ul>
+</details>
+
 - [ ] **Disable nightly testing** to free up resources and ensure no competing jobs during release week
 - [ ] **Update aqaReference** to update with new git tag for 'aqaReference' to be used in release pipeline
 - [ ] **Run a trial release pipeline** to ensure less surprises on release day (typically against a milestone build)
