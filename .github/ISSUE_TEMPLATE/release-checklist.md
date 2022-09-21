@@ -36,7 +36,7 @@ If you need to submit a pr for any of these repos during this period, you should
   <ul>
   <li>Add a comment saying “Approval to merge during the lockdown cycle please” and post in the appropriate slack channel for awareness. This can be done before the PR is finalised</li>
   <li>Add a note into this channel saying you are requesting the approval with a link to the comment in the first bullet point</li>
-  <li>The comment should have approval from at least one build committer and one TSC member to indicate that they agree it is critical that it goes in</li>
+  <li>The comment should have approval from at least one build committer and one PMC member to indicate that they agree it is critical that it goes in</li>
   <li>The PR can be merged after 2 hours of the post going into the build channel (to give people time to object ... This delay may be skipped in the case where the delay will result in something breaking within that time.</li>
   </ul>
 </details>
