@@ -41,6 +41,7 @@ If you need to submit a pr for any of these repos during this period, you should
   </ul>
 </details>
 
+- [ ] **Enable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && false` to be `if: github.repository_owner == 'adoptium' && true` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
 - [ ] **Disable nightly testing** to free up resources and ensure no competing jobs during release week
 - [ ] **Update aqaReference** to update with new git tag for 'aqaReference' to be used in release pipeline
 - [ ] **Run a trial release pipeline** to ensure less surprises on release day (typically against a milestone build)
@@ -82,12 +83,13 @@ Release Week Checklist:
 - [ ] **Verify binaries published successfully** to github releases repo and website (_automate_*, this could also be an automated test)
 
 - [ ] **Publish updates to the containers to dockerhub**
-- [ ] **Edit the [Homebrew Temurin Cask](https://github.com/Homebrew/homebrew-cask/blob/master/Casks/temurin.rb) and replace the version and sha256 as appropriate.  This means for Homebrew users that they install the latest by default and can use the `@` notation to install older versions if they wish.
+- [ ] **Edit the [Homebrew Temurin Cask](https://github.com/Homebrew/homebrew-cask/blob/master/Casks/temurin.rb)** and replace the version and sha256 as appropriate.  This means for Homebrew users that they install the latest by default and can use the `@` notation to install older versions if they wish.
 - [ ] **Update support page** (_automate_* github workflow to create a PR to update [support webpage](https://github.com/adoptium/website-v2/blob/main/src/asciidoc-pages/support.adoc))
 - [ ] **Update release notes** (_automate_* - github workflow to create update for [release notes page](https://adoptium.net/release_notes.html))
 - [ ] **Trigger linux installers pipeline** currently it is part of the build pipelines (will eventually be updated to run independently)
 - [ ] **Publicize the release** via Slack #release channel and Twitter (can be partially automated)
 - [ ] **Declare code freeze end** opening up the code for further development
+- [ ] **Disable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && true` to be `if: github.repository_owner == 'adoptium' && false` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
 - [ ] **Remove website banner** (_automate_* via github workflow in website repository)
 - [ ] **Check for presence of jdk8u aarch32 GA tag and mirror it** [Mercurial repo](https://hg.openjdk.java.net/aarch32-port/jdk8u) - [Mirror job](https://ci.adoptopenjdk.net/view/git-mirrors/job/git-mirrors/job/adoptium/job/git-hg-aarch32-jdk8u/)
 - [ ] **Do all of the above for the jdk8u/aarch32 build**
