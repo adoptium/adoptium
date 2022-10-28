@@ -28,7 +28,7 @@ subgraph Eclipse Adoptium
     end
     subgraph Temurin
         subgraph Build
-            buildTrigger[temurin-build]:::public --- mirror["mirror-scripts"]:::public --- src["jdk, jdk8u, jdk8u-aarch32, jdk17u"]:::public --- release["github-release-scripts"]:::public --- binaries["temurin8-binaries, temurin17-binaries"]:::public --- installer["installer"]:::public --- build["build-jdk"]:::public
+            buildTrigger[temurin-build]:::public --- mirror["mirror-scripts"]:::public --- src["jdk, jdk8u, jdk8u-aarch32, jdk17u"]:::public --- release["github-release-scripts"]:::public --- binaries["temurin8-binaries,<br/>temurin11-binaries,<br/>temurin17-binaries,<br/>temurin19-binaries"]:::public --- installer["installer"]:::public --- build["build-jdk"]:::public
         end
         subgraph Infrastructure
             direction LR
