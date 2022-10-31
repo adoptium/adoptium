@@ -15,7 +15,37 @@ This organization provides a home for Git repositories that contain the activiti
 
 Please see the [Eclipse Adoptium Project](https://projects.eclipse.org/projects/adoptium) description for more information regarding the Adoptium top-level project or its sub-projects (visually depicted in the diagram below).
 
-![Extra Projects](images/AdoptiumCoreRepoRelationshipsDiagram.png)
+```mermaid
+graph TD
+
+subgraph Eclipse Adoptium
+    classDef public fill:#CFE1F3,stroke:#333,stroke-width:4px,color:#000000
+    classDef private fill:#FF0000,stroke:#333,stroke-width:4px,color:#000000
+    style public fill:#CFE1F3,stroke:#333,stroke-width:4px,color:#000000
+    style private fill:#FF0000,stroke:#333,stroke-width:4px,color:#000000
+    subgraph Adoptium
+        AdoptiumTrigger[adoptium]:::public --- website["website-v2"]:::public --- api["api.adoptium.net"]:::public --- blog["blog.adoptium.net"]:::public --- dash["dash.adoptium.net"]:::public
+    end
+    subgraph Temurin
+        subgraph Build
+            buildTrigger[temurin-build]:::public --- mirror["mirror-scripts"]:::public --- src["jdk, jdk8u, jdk8u-aarch32, jdk17u"]:::public --- release["github-release-scripts"]:::public --- binaries["temurin8-binaries,<br/>temurin11-binaries,<br/>temurin17-binaries,<br/>temurin19-binaries"]:::public --- installer["installer"]:::public --- build["build-jdk"]:::public
+        end
+        subgraph Infrastructure
+            direction LR
+            infraTrigger[infrastructure]:::public --- jenkins["ci-jenkins-pipelines"]:::public --- jenkinshelper["jenkins-helper"]:::public --- support["adoptium-support"]:::public
+        end
+    end
+    subgraph Temurin Compliance
+        TCKTrigger[temurin-compliance]:::private --- infra["infrastructure"]:::private --- jck8["JCK8-unzipped"]:::private --- jck11["JCK11-unzipped"]:::private --- jck17["JCK17-unzipped"]:::private --- jck19["JCK19-unzipped"]:::private
+    end
+    subgraph AQAvit
+        AQAvitTrigger[aqa-tests]:::public --- tkg["TKG"]:::public --- test-tools["aqa-test-tools"]:::public --- stf["STF"]:::public --- systemtest["aqa-systemtest"]:::public --- bumblebench["bumblebench"]:::public --- run-aqa["run-aqa"]:::public
+    end
+    subgraph Incubator
+        IncubatorTrigger[jdk11u-fast-startup-incubator]:::public
+    end
+end
+```
 
 ## Eclipse Adoptium Working Group
 
