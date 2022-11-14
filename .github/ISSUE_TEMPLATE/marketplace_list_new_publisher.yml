@@ -41,11 +41,22 @@ body:
     attributes:
       label: Publisher Logo
       description: |
-        Provide a link to a logo that identifies you as a Publisher and your listings in the marketplace.
+        Provide a link to a logo that identifies you as a Publisher in the marketplace.
         The logo should be 200px x 200px for optimal rendering.
-      placeholder: "https://www.example.com/logo.jpg"
+      placeholder: "https://www.example.com/vend_logo.jpg"
     validations:
       required: true
+  - type: input
+    id: distribution_logo
+    attributes:
+      label: Distribution Logo
+      description: |
+        Provide a link to a logo that identifies your specific distribution listings in the marketplace.
+        We will use your vendor logo again if there is no specific distribution logo.
+        The logo should be 200px x 200px for optimal rendering.
+      placeholder: "https://www.example.com/distro_logo.jpg"
+    validations:
+      required: false
   - type: input
     id: metadata_location
     attributes:
