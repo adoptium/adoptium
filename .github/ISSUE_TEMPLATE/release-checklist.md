@@ -51,7 +51,7 @@ If you need to submit a pr for any of these repos during this period, you should
 - [ ] **Run a trial release pipeline** to ensure less surprises on release day (typically against a milestone build)
 
 <details>
-<summary>Trigger a release pipeline test</summary>
+<summary>Trigger a release pipeline test (a.k.a. pre-release dry run)</summary>
   <ul>
   <li>Determine adoptium/jdkNNu mirror openjdk tag to be built for the trial release pipeline (eg.jdk-17.0.6+8), note the openjdk tag NOT the _adopt tag.
   <li>Update JDKnn_BRANCH property in the aqa-tests testenv.properties for the **aqa release** branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties
