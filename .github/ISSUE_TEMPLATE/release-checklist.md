@@ -54,7 +54,7 @@ If you need to submit a pr for any of these repos during this period, you should
 <summary>Trigger a release pipeline test</summary>
   <ul>
   <li>Determine adoptium/jdkNNu mirror openjdk tag to be built for the trial release pipeline (eg.jdk-17.0.6+8), note the openjdk tag NOT the _adopt tag.
-  <li>Update JDKnn_BRANCH property in the aqa-tests testenv.properties for the **aqa release** branch, eg:https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties
+  <li>Update JDKnn_BRANCH property in the aqa-tests testenv.properties for the **aqa release** branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties
   <li>Get an Adoptium Admin to tag the trial tag to build in the adoptium mirror, as in the following example:
 
 `git clone git@github.com:adoptium/jdk17u.git`
@@ -66,8 +66,10 @@ If you need to submit a pr for any of these repos during this period, you should
 `git push --tags origin master`
 
   <li>Wait release trigger job to detect the tag (wait up to 10mins), eg: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/releaseTrigger_jdk17u/ (if before the 13th day of the month then you will need to manually run the job as it will be outside its cron schedule)
-  <li>The triual release pipeline job should now be running, eg: https://ci.adoptopenjdk.net/job/build-scripts/job/release-openjdk17-pipeline/
+  <li>The trial release pipeline job should now be running, eg: https://ci.adoptopenjdk.net/job/build-scripts/job/release-openjdk17-pipeline/
   </ul>
+- [ ] Confirm successful trial release pipelines and jck completion
+- [ ] Calculate the "expected" openjdk build tags for the releases being published, and update all the JDKnn_BRANCH values in the testenv.properties file for the aqa-tests release branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties 
 </details>
 
 -------
@@ -76,8 +78,9 @@ Release Week Checklist:
 
 - [ ] **Add website banner** (_automate_* via github workflow in website repository) - Announce that we target releases to be available within 48-72 hours of the GA tags being available
 - [ ] **Check Tags have been released upstream** - Look for mailing list announcements and `-ga` tags in version control.
+- [ ] Check the published GA tags are the "expected" tags entered in the aqa-tests release branch testenv.properties. If they are not then update.
 - [ ] **Check Tags have been Mirrored** [Mirrors](https://ci.adoptopenjdk.net/view/git-mirrors/job/git-mirrors/job/adoptium/).
-- [ ] **Launch build pipelines** for each version being released [(as per release doc](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#steps-for-every-version)) once release tags are available via [launch page](https://ci.adoptopenjdk.net/job/build-scripts/job/openjdk8-pipeline/build) in Jenkins.  Provide links in this issue to each version's pipeline build(s). There may be multiple pipelines per version if primary and secondary platforms are separated to expedite the release.  In some cases,  where there are unforeseen configuration or infrastructure issues, reruns may be needed.
+- [ ] **Check "auto-trigger" pipelines or Launch build pipelines** for each version being released. Verify if the release pipline "auto-triggered", if not (maybe expected tag was wrong), then manually launch [(as per release doc](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#steps-for-every-version)) once release tags are available via [launch page](https://ci.adoptopenjdk.net/job/build-scripts/job/openjdk8-pipeline/build) in Jenkins.  Provide links in this issue to each version's pipeline build(s). There may be multiple pipelines per version if primary and secondary platforms are separated to expedite the release.  In some cases,  where there are unforeseen configuration or infrastructure issues, reruns may be needed.
   - jdk8 pipeline(s):
     - **primary jdk8 pipeline:**
       - rerun(s):
