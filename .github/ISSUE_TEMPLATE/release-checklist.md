@@ -43,7 +43,7 @@ If you need to submit a pr for any of these repos during this period, you should
 
 - [ ] **Enable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && false` to be `if: github.repository_owner == 'adoptium' && true` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
 - [ ] **Disable nightly testing** to free up resources and ensure no competing jobs during release week
-- [ ] Tag the build repositories (temurin-build, ci-jenkins-pipelines, jenkins-helper) for the release level tooling: <repo>/releases, "Draft new release". Choose tag: "v<YY>.<MM>.01" (increment 01 if needed..)
+- [ ] Tag the build repositories (temurin-build, ci-jenkins-pipelines, jenkins-helper) for the release level tooling: github/\<repo\>/releases, "Draft new release". Choose tag: "v\<YY\>.\<MM\>.01" (increment 01 if needed..)
 - [ ] **Update aqaReference** to update with new git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches
 - [ ] Generate release pipeline jobs for the new build scripts repo release tag, helper repo releasetag and aqaReference: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/release-build-pipeline-generator/build?delay=0sec
 - [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
