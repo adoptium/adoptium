@@ -68,6 +68,7 @@ If you need to submit a pr for any of these repos during this period, you should
   <li>Wait release trigger job to detect the tag (wait up to 10mins), eg: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/releaseTrigger_jdk17u/ (if before the 13th day of the month then you will need to manually run the job as it will be outside its cron schedule)
   <li>The trial release pipeline job should now be running, eg: https://ci.adoptopenjdk.net/job/build-scripts/job/release-openjdk17-pipeline/
   </ul>
+
 - [ ] Confirm successful trial release pipelines and jck completion
 - [ ] Calculate the "expected" openjdk build tags for the releases being published, and update all the JDKnn_BRANCH values in the testenv.properties file for the aqa-tests release branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties 
 </details>
