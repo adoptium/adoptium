@@ -57,6 +57,8 @@ If you need to submit a pr for any of these repos during this period, you should
   <li>Update JDKnn_BRANCH property in the aqa-tests testenv.properties for the **aqa release** branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties
   <li>Get an Adoptium Admin to tag the trial tag to build in the adoptium mirror, as in the following example:
 
+**IMPORTANT: trial tag MUST be "-beforereleastest-ga"**
+
 `git clone git@github.com:adoptium/jdk17u.git`
 
 `cd jdk17u`
