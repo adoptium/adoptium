@@ -26,7 +26,7 @@ Everyone participating in a release, including the release champion are requeste
 One Week Prior to Release:
 
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
-- [ ] **We may not need to do this now with build script tags and release pipeline** **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
+- [ ] **We may not need to do this now with build script tags and release pipeline??** **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
   
 <details>
 <summary>Code Freeze message</summary>
