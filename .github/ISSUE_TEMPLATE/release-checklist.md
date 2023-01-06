@@ -26,7 +26,7 @@ Everyone participating in a release, including the release champion are requeste
 One Week Prior to Release:
 
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
-- [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
+- [ ] ** We may not need to do this now with build script tags and release pipeline ** **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
   
 <details>
 <summary>Code Freeze message</summary>
@@ -42,37 +42,15 @@ If you need to submit a pr for any of these repos during this period, you should
 </details>
 
 - [ ] **Enable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && false` to be `if: github.repository_owner == 'adoptium' && true` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
-- [ ] **Disable nightly testing** to free up resources and ensure no competing jobs during release week
+- [ ] **Disable nightly build completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week
 - [ ] Tag the build repositories (temurin-build, ci-jenkins-pipelines, jenkins-helper) for the release level tooling: github/\<repo\>/releases, "Draft new release". Choose tag: "v\<YY\>.\<MM\>.01" (increment 01 if needed..)
 - [ ] **Update aqaReference** to update with new git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
-- [ ] Generate release pipeline jobs for the new build scripts repo release tag, helper repo releasetag and aqaReference: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/release-build-pipeline-generator/build?delay=0sec
+- [ ] Generate release pipeline jobs for the new build scripts repo release tag, helper repo release tag and aqaReference: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/release-build-pipeline-generator/build?delay=0sec
 - [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
 - [ ] TC: Run the Setup_JCK_Run_Multinode job with CLEAN_DIR=true (to purge any old release contents/results) on all ci.role.test nodes, this will extract the jck_run folder with all the temurin.jtx exclude files, verify all nodes successful : https://ci.eclipse.org/temurin-compliance/job/Setup_JCK_Run_Multinode/build?delay=0sec
-- [ ] **Run a trial release pipeline** to ensure less surprises on release day (typically against a milestone build)
+- [ ] **Trigger a trial release pipeline dry-run** to ensure less surprises on release day (typically against a milestone build), see here for [details](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#auto-way---before-release-week-auto-test)
 
-<details>
-<summary>Trigger a release pipeline test (a.k.a. pre-release dry run)</summary>
-  <ul>
-  <li>Determine adoptium/jdkNNu mirror openjdk tag to be built for the trial release pipeline (eg.jdk-17.0.6+8), note the openjdk tag NOT the _adopt tag.
-  <li>Update JDKnn_BRANCH property in the aqa-tests testenv.properties for the **aqa release** branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties
-  <li>Get an Adoptium Admin to tag the trial tag to build in the adoptium mirror, as in the following example:
-
-**IMPORTANT: trial tag MUST be "-beforereleastest-ga"**
-
-`git clone git@github.com:adoptium/jdk17u.git`
-
-`cd jdk17u`
- 
-`git tag -a "jdk-17.0.6-beforereleastest-ga" jdk-17.0.6+8^{} -m"Before release trial test"`
-
-`git push --tags origin master`
-
-  <li>Wait release trigger job to detect the tag (wait up to 10mins), eg: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/releaseTrigger_jdk17u/ (if before the 13th day of the month then you will need to manually run the job as it will be outside its cron schedule)
-  <li>The trial release pipeline job should now be running, eg: https://ci.adoptopenjdk.net/job/build-scripts/job/release-openjdk17-pipeline/
-  </ul>
-</details>
-
-- [ ] Confirm successful trial release pipelines and jck completion
+- [ ] Confirm successful trial release pipelines and successful jck completion
 - [ ] Calculate the "expected" openjdk build tags for the releases being published, and update all the JDKnn_BRANCH values in the testenv.properties file for the aqa-tests release branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties 
 
 -------
