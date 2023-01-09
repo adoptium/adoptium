@@ -26,7 +26,7 @@ Everyone participating in a release, including the release champion are requeste
 One Week Prior to Release:
 
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
-- [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
+- [ ] **We may not need to do this now with build script tags and release pipeline??** **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
   
 <details>
 <summary>Code Freeze message</summary>
@@ -42,9 +42,16 @@ If you need to submit a pr for any of these repos during this period, you should
 </details>
 
 - [ ] **Enable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && false` to be `if: github.repository_owner == 'adoptium' && true` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
-- [ ] **Disable nightly testing** to free up resources and ensure no competing jobs during release week
-- [ ] **Update aqaReference** to update with new git tag for 'aqaReference' to be used in release pipeline
-- [ ] **Run a trial release pipeline** to ensure less surprises on release day (typically against a milestone build)
+- [ ] **Disable nightly build completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week
+- [ ] Tag the build repositories (temurin-build, ci-jenkins-pipelines, jenkins-helper) for the release level tooling: github/\<repo\>/releases, "Draft new release". Choose tag: "v\<YYYY\>.\<MM\>.01" (increment 01 if needed..)
+- [ ] **Update aqaReference** to update with new git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
+- [ ] Generate release pipeline jobs for the new build scripts repo release tag, helper repo release tag and aqaReference: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/release-build-pipeline-generator/build?delay=0sec
+- [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
+- [ ] TC: Run the Setup_JCK_Run_Multinode job with CLEAN_DIR=true (to purge any old release contents/results) on all ci.role.test nodes, this will extract the jck_run folder with all the temurin.jtx exclude files, verify all nodes successful : https://ci.eclipse.org/temurin-compliance/job/Setup_JCK_Run_Multinode/build?delay=0sec
+- [ ] **Trigger a trial release pipeline dry-run** to ensure less surprises on release day (typically against a milestone build), see here for [details](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#auto-way---before-release-week-auto-test)
+
+- [ ] Confirm successful trial release pipelines and successful jck completion
+- [ ] Calculate the "expected" openjdk build tags for the releases being published, and update all the JDKnn_BRANCH values in the testenv.properties file for the aqa-tests release branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties 
 
 -------
 
@@ -52,8 +59,9 @@ Release Week Checklist:
 
 - [ ] **Add website banner** (_automate_* via github workflow in website repository) - Announce that we target releases to be available within 48-72 hours of the GA tags being available
 - [ ] **Check Tags have been released upstream** - Look for mailing list announcements and `-ga` tags in version control.
+- [ ] Check the published GA tags are the "expected" tags entered in the aqa-tests release branch testenv.properties. If they are not then update.
 - [ ] **Check Tags have been Mirrored** [Mirrors](https://ci.adoptopenjdk.net/view/git-mirrors/job/git-mirrors/job/adoptium/).
-- [ ] **Launch build pipelines** for each version being released [(as per release doc](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#steps-for-every-version)) once release tags are available via [launch page](https://ci.adoptopenjdk.net/job/build-scripts/job/openjdk8-pipeline/build) in Jenkins.  Provide links in this issue to each version's pipeline build(s). There may be multiple pipelines per version if primary and secondary platforms are separated to expedite the release.  In some cases,  where there are unforeseen configuration or infrastructure issues, reruns may be needed.
+- [ ] **Check "auto-trigger" pipelines or Launch build pipelines** for each version being released. Verify if the release pipline "auto-triggered", if not (maybe expected tag was wrong), then manually launch [(as per release doc](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#steps-for-every-version)) once release tags are available via [launch page](https://ci.adoptopenjdk.net/job/build-scripts/job/openjdk8-pipeline/build) in Jenkins.  Provide links in this issue to each version's pipeline build(s). There may be multiple pipelines per version if primary and secondary platforms are separated to expedite the release.  In some cases,  where there are unforeseen configuration or infrastructure issues, reruns may be needed.
   - jdk8 pipeline(s):
     - **primary jdk8 pipeline:**
       - rerun(s):
