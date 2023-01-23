@@ -1,12 +1,10 @@
 on:
   push:
     branches: [main]
-    paths:
-      - "tweets/**"
+    paths: [ tweets/** ]
   pull_request:
     branches: [main]
-    paths:
-      - "tweets/**"
+    paths: [ tweets/** ]
 
 name: Twitter, together!
 jobs:
