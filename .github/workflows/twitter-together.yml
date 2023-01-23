@@ -1,0 +1,33 @@
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    paths:
+      - "tweets/**"
+
+name: Twitter, together!
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    if: startsWith(github.repository, 'adoptium/') && github.event_name == 'pull_request'
+    steps:
+      - uses: twitter-together/action@ed7c91ba94c88e00c2f1a90554bec365e890495b # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  tweet:
+    name: Tweet
+    runs-on: ubuntu-latest
+    if: startsWith(github.repository, 'adoptium/') && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+
+      - name: Tweet
+        uses: twitter-together/action@ed7c91ba94c88e00c2f1a90554bec365e890495b # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET_KEY: ${{ secrets.TWITTER_API_SECRET_KEY }}
