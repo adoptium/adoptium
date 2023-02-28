@@ -32,12 +32,12 @@ Everyone participating in a release, including the release champion are requeste
 Paste a message similar to the example below In the Adoptium build and release slack channels
 
 > In preparation for the upcoming release cycle, Im proposing to perform
-> a code free on the following repositories on "Release Date - 7" (1 week prior to release)
+> a code freeze on the following repositories on "Release Date - 7" (1 week prior to release)
 >
 > - [github-release-scripts](https://github.com/adoptium/github-release-scripts)
 > - [containers](https://github.com/adoptium/containers)
 > - [installer](https://github.com/adoptium/installer)
-> - [mirror-script](https://github.com/adoptium/mirror-scripts)
+> - [mirror-scripts](https://github.com/adoptium/mirror-scripts)
 >
 > Please ensure any PRs required for the release are merged before the (DATE).
 
