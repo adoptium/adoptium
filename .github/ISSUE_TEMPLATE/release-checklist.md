@@ -26,6 +26,7 @@ Everyone participating in a release, including the release champion are requeste
 ### Two Weeks Prior To Release
 
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
+- [ ] **Release Checklist Created**  Create this issue to track the release and the preparation tasks.
 - [ ] **Identify Release Versions** - Find out the version numbers from [here](https://www.java.com/releases/)
 - [ ] **Issue Code Freeze Early Warning For None Branched Repos**
 
@@ -60,6 +61,16 @@ These branches should be named according to the following format (vYYYY.MM.NN) ,
 
 
 ### One Week Prior To Release
+- [ ] **Final Code Freeze Warning** post a message similar to below to the build & release slack channels
+
+>  In Preparation for next weeks release, Im proposing to tag the
+> following repositories ( this is instead of a code freeze ), in order
+> that this tag becomes the baseline for the release. Shout now if you
+> need to get any PRs merged ahead of the release, as today is the last
+> day, the following repositories will be tagged ( temurin-build,
+> ci-jenkins-pipelines , jenkins-helper ).
+
+After 1 day, then :-
 
 - [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
 
@@ -76,11 +87,26 @@ If you need to submit a pr for any of these repos during this period, you should
   </ul>
 </details>
 
-- [ ] **Enable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && false` to be `if: github.repository_owner == 'adoptium' && true` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
-- [ ] **Disable nightly build completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week
-- [ ] Tag the build repositories (temurin-build, ci-jenkins-pipelines, jenkins-helper) for the release level tooling: github/\<repo\>/releases, "Draft new release". Choose tag: "v\<YYYY\>.\<MM\>.01" (increment 01 if needed..)
+ - [ ] **Enable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && false` to be `if: github.repository_owner == 'adoptium' && true` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
+ - [ ] **Freeze The Non Tagged Repositories** implement code freeze on the following repositories : 		
+	 - github-release-scripts https://github.com/adoptium/github-release-scripts
+	 - containers https://github.com/adoptium/containers
+	 - installer https://github.com/adoptium/installer
+	 - mirror-scripts https://github.com/adoptium/mirror-scripts
+
+- [ ] **Disable nightly builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week
+- [ ] **Disable weekend builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during the weekend prior to release, helps ensure no long running weekend jobs take critical resources during the beginning of the release period.
 - [ ] **Update aqaReference** to update with new git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
+ - [ ] **Prepare For Release**
+>  - Double check the relevent aqa-tests branch version, ensure git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
+>  - Update releaseVersions with release versions.
+>  - Update https://github.com/adoptium/mirror-scripts/blob/master/releasePlan.cfg
+> with expected tags, for more detail see
+> https://github.com/zdtsw/mirror-scripts/tree/issue/3167#skara-repos-and-processes
 - [ ] Generate release pipeline jobs for the new build scripts repo release tag, helper repo release tag and aqaReference: https://ci.adoptopenjdk.net/job/build-scripts/job/utils/job/release-build-pipeline-generator/build?delay=0sec
+
+**Wait For All Of The Above To Complete Successfully Before Proceeding!**
+
 - [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
 - [ ] TC: Run the Setup_JCK_Run_Multinode job with CLEAN_DIR=true (to purge any old release contents/results) on all ci.role.test nodes, this will extract the jck_run folder with all the temurin.jtx exclude files, verify all nodes successful : https://ci.eclipse.org/temurin-compliance/job/Setup_JCK_Run_Multinode/build?delay=0sec
 - [ ] **Trigger a trial release pipeline dry-run** to ensure less surprises on release day (typically against a milestone build), see here for [details](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#auto-way---before-release-week-auto-test)
