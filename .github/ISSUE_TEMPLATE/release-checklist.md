@@ -15,7 +15,7 @@ The target release date is: _________
 
 The release champion for this release is: _________
 
-Planned absences during the release cycle: 
+Planned absences during the release cycle:
 
 The role of the release champion is to ensure that all release activities listed in this checklist get completed (by delegation to the broader team or by the release champion themselves).  The final task of the release champion during a release is to confirm that all items in the checklist were completed satisfactorily and the release can be declared complete.
 
@@ -23,11 +23,46 @@ Everyone participating in a release, including the release champion are requeste
 
 -------
 
-One Week Prior to Release:
+### Two Weeks Prior To Release
 
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
-- [ ] **We may not need to do this now with build script tags and release pipeline??** **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
-  
+- [ ] **Identify Release Versions** - Find out the version numbers from [here](https://www.java.com/releases/)
+- [ ] **Issue Code Freeze Early Warning For None Branched Repos**
+
+Paste a message similar to the example below In the Adoptium build and release slack channels
+
+> In preparation for the upcoming release cycle, Im proposing to perform
+> a code free on the following repositories on "Release Date - 7" (1 week prior to release)
+>
+> - [github-release-scripts](https://github.com/adoptium/github-release-scripts)
+> - [containers](https://github.com/adoptium/containers)
+> - [installer](https://github.com/adoptium/installer)
+> - [mirror-script](https://github.com/adoptium/mirror-scripts)
+>
+> Please ensure any PRs required for the release are merged before the (DATE).
+
+- [ ] **Create Release Branches**
+create branches in the following adoptium source repositories :-
+		[temurin-build](https://github.com/adoptium/temurin-build)
+		[ci-jenkins-pipelines](https://github.com/adoptium/ci-jenkins-pipelines)
+		[jenkins-helper](https://github.com/adoptium/jenkins-helper)
+
+These branches should be named according to the following format (vYYYY.MM.NN) ,e.g v2023.03.01 , whereby the final element is an incremental counter appended to the year and month of the release.
+
+ - [ ] **Prepare & Perform Dry Run Of Build & Tests**
+
+>  - Identify the relevent aqa-tests branch version
+>  - Update releaseVersions with "dry run test" release versions.
+>  - Update https://github.com/adoptium/mirror-scripts/blob/master/releasePlan.cfg
+> with expected tags ( again amended appropriately for a dry run ), for more detail see
+> https://github.com/zdtsw/mirror-scripts/tree/issue/3167#skara-repos-and-processes
+>  - Update The AQA Branch ( e.g. ) https://raw.githubusercontent.com/adoptium/aqa-tests/v0.9.6-release/testenv/testenv.properties with the expected tags.
+
+
+### One Week Prior To Release
+
+- [ ] **Declare code freeze** to ensure stability of build systems and infrastructure during release process. This is done by pasting the below message into the #release channel in Slack:
+
 <details>
 <summary>Code Freeze message</summary>
 
@@ -51,7 +86,7 @@ If you need to submit a pr for any of these repos during this period, you should
 - [ ] **Trigger a trial release pipeline dry-run** to ensure less surprises on release day (typically against a milestone build), see here for [details](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#auto-way---before-release-week-auto-test)
 
 - [ ] Confirm successful trial release pipelines and successful jck completion
-- [ ] Calculate the "expected" openjdk build tags for the releases being published, and update all the JDKnn_BRANCH values in the testenv.properties file for the aqa-tests release branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties 
+- [ ] Calculate the "expected" openjdk build tags for the releases being published, and update all the JDKnn_BRANCH values in the testenv.properties file for the aqa-tests release branch, eg: https://github.com/adoptium/aqa-tests/blob/v0.9.6-release/testenv/testenv.properties
 
 -------
 
@@ -102,4 +137,3 @@ Release Week Checklist:
 - [ ] **Check for presence of jdk8u aarch32 GA tag and mirror it** [Mercurial repo](https://hg.openjdk.java.net/aarch32-port/jdk8u) - [Mirror job](https://ci.adoptopenjdk.net/view/git-mirrors/job/git-mirrors/job/adoptium/job/git-hg-aarch32-jdk8u/)
 - [ ] **Do all of the above for the jdk8u/aarch32 build**
 - [ ] **Declare the release complete** and close this issue
-
