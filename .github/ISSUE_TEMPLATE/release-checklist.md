@@ -50,6 +50,8 @@ create branches in the following adoptium source repositories :-
 
 These branches should be named according to the following format (vYYYY.MM.NN) ,e.g v2023.03.01 , whereby the final element is an incremental counter appended to the year and month of the release.
 
+ - [ ] Check the nagios server to ensure there are no critical infrastructure issues
+
  - [ ] **Prepare & Perform Dry Run Of Build & Tests**
 
 >  - Identify the relevent aqa-tests branch version
@@ -107,8 +109,10 @@ If you need to submit a pr for any of these repos during this period, you should
 
 **Wait For All Of The Above To Complete Successfully Before Proceeding!**
 
+- [ ] Log a helpdesk ticket with EF , to get all test materials updated
 - [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
 - [ ] TC: Run the Setup_JCK_Run_Multinode job with CLEAN_DIR=true (to purge any old release contents/results) on all ci.role.test nodes, this will extract the jck_run folder with all the temurin.jtx exclude files, verify all nodes successful : https://ci.eclipse.org/temurin-compliance/job/Setup_JCK_Run_Multinode/build?delay=0sec
+- [ ] Check the nagios server to ensure there are no critical infrastructure issues
 - [ ] **Trigger a trial release pipeline dry-run** to ensure less surprises on release day (typically against a milestone build), see here for [details](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md#auto-way---before-release-week-auto-test)
 
 - [ ] Confirm successful trial release pipelines and successful jck completion
@@ -119,6 +123,15 @@ If you need to submit a pr for any of these repos during this period, you should
 Release Week Checklist:
 
 - [ ] **Add website banner** (_automate_* via github workflow in website repository) - Announce that we target releases to be available within 48-72 hours of the GA tags being available
+- [ ]   -- Check All Nodes Online ( Needs adding to release checklist ) - https://ci.eclipse.org/temurin-compliance/label/ci.role.test/
+- [ ]  Run https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/ -- with defaults
+- [ ] Run Setup_JCK_Multinode with CLEAN_DIR=true for ( ci.role.test )
+- [ ] Disable Setup JCK_MUltinode To Ensure Test Evidence Is Not Lost
+- [ ] Check the nagios server to ensure there are no critical infrastructure issues
+- [ ] Create The Github Issues for tracking progress against each Java version
+
+The following steps have all been automated ( with the exception of manually triggering the JDK8 AARCH32 build, which must be done seperately when the tags are available )
+
 - [ ] **Check Tags have been released upstream** - Look for mailing list announcements and `-ga` tags in version control.
 - [ ] Check the published GA tags are the "expected" tags entered in the aqa-tests release branch testenv.properties. If they are not then update.
 - [ ] **Check Tags have been Mirrored** [Mirrors](https://ci.adoptopenjdk.net/view/git-mirrors/job/git-mirrors/job/adoptium/).
