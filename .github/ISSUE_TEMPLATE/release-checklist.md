@@ -130,9 +130,9 @@ Release Week Checklist:
 - [ ] Run Setup_JCK_Multinode with CLEAN_DIR=true for ( ci.role.test )
 - [ ] Disable Setup JCK_MUltinode To Ensure Test Evidence Is Not Lost
 - [ ] As detailed earlier, again check the nagios server to ensure there are no critical infrastructure issues
-- [ ] Create The Github Issues for tracking progress against each Java version
-
-On ReleaeThe following steps have all been automated ( with the exception of manually triggering the JDK8 AARCH32 build, which must be done seperately when the tags are available )
+- [ ] Create the Github Issues for tracking progress against each Java version
+- [ ] Create the Github issues for the Adoptium public retro & TC retroes
+- [ ] Update the links on the slack channel for the release status and retrospective issues.
 
 #### Release Day Onwards
 
