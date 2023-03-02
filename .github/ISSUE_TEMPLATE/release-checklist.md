@@ -27,10 +27,10 @@ Everyone participating in a release, including the release champion are requeste
 
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
 - [ ] **Release Checklist Created**  Create this issue to track the release and the preparation tasks.
-- [ ] **Identify Release Versions** - Find out the version numbers from [here](https://www.java.com/releases/)
+- [ ] **Identify Expected Release Versions** - Find out the version numbers from [here](https://www.java.com/releases/)
 - [ ] **Issue Code Freeze Early Warning For None Branched Repos**
 
-Paste a message similar to the example below In the Adoptium build and release slack channels
+Paste a message similar to the example below In the Adoptium [build](https://adoptium.slack.com/archives/C09NW3L2J)  and  [release](https://adoptium.slack.com/archives/CLCFNV2JG) slack channels
 
 > In preparation for the upcoming release cycle, Im proposing to perform
 > a code freeze on the following repositories on "Release Date - 7" (1 week prior to release)
@@ -38,7 +38,6 @@ Paste a message similar to the example below In the Adoptium build and release s
 > - [github-release-scripts](https://github.com/adoptium/github-release-scripts)
 > - [containers](https://github.com/adoptium/containers)
 > - [installer](https://github.com/adoptium/installer)
-> - [mirror-scripts](https://github.com/adoptium/mirror-scripts)
 >
 > Please ensure any PRs required for the release are merged before the (DATE).
 
@@ -50,8 +49,11 @@ create branches in the following adoptium source repositories :-
 
 These branches should be named according to the following format (vYYYY.MM.NN) ,e.g v2023.03.01 , whereby the final element is an incremental counter appended to the year and month of the release.
 
- - [ ] Check the nagios server to ensure there are no critical infrastructure issues
+ - [ ] **Identify the aqa branch name for the upcoming release**
 
+ - [ ] **Check the nagios server to ensure there are no critical infrastructure issues**
+	 Log in to the public [nagios](https://nagios.adoptopenjdk.net/nagios/) server, and check the Problems / Services page. If you do not have access, please request it via an issue in the infrastructure repository. If there are any issues, then please log an issue in the infrastructure repository.
+ - [ ] **Regenerate The Release Build Pipeline Jobs In Jenkins**
  - [ ] **Prepare & Perform Dry Run Of Build & Tests**
 
 >  - Identify the relevent aqa-tests branch version
@@ -65,12 +67,12 @@ These branches should be named according to the following format (vYYYY.MM.NN) ,
 ### One Week Prior To Release
 - [ ] **Final Code Freeze Warning** post a message similar to below to the build & release slack channels
 
->  In Preparation for next weeks release, Im proposing to tag the
+>  In Preparation for next weeks release, I'm proposing to tag the
 > following repositories ( this is instead of a code freeze ), in order
 > that this tag becomes the baseline for the release. Shout now if you
 > need to get any PRs merged ahead of the release, as today is the last
 > day, the following repositories will be tagged ( temurin-build,
-> ci-jenkins-pipelines , jenkins-helper ).
+> ci-jenkins-pipelines , jenkins-helper, mirror-scripts ).
 
 After 1 day, then :-
 
@@ -96,8 +98,8 @@ If you need to submit a pr for any of these repos during this period, you should
 	 - installer https://github.com/adoptium/installer
 	 - mirror-scripts https://github.com/adoptium/mirror-scripts
 
-- [ ] **Disable nightly builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week
-- [ ] **Disable weekend builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during the weekend prior to release, helps ensure no long running weekend jobs take critical resources during the beginning of the release period.
+- [ ] **Disable standard & evaluation nightly builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week
+- [ ] **Disable standard & evaluation weekend builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during the weekend prior to release, helps ensure no long running weekend jobs take critical resources during the beginning of the release period.
 - [ ] **Update aqaReference** to update with new git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
  - [ ] **Prepare For Release**
 >  - Double check the relevent aqa-tests branch version, ensure git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
@@ -122,15 +124,17 @@ If you need to submit a pr for any of these repos during this period, you should
 
 Release Week Checklist:
 
-- [ ] **Add website banner** (_automate_* via github workflow in website repository) - Announce that we target releases to be available within 48-72 hours of the GA tags being available
-- [ ]   -- Check All Nodes Online ( Needs adding to release checklist ) - https://ci.eclipse.org/temurin-compliance/label/ci.role.test/
+- [ ] **Add website banner** (this is done by making a PR then it gets automate published to website) - Announce that we target releases to be available within 48-72 hours of the GA tags being available
+- [ ]   -- Check All Nodes Online https://ci.eclipse.org/temurin-compliance/label/ci.role.test/
 - [ ]  Run https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/ -- with defaults
 - [ ] Run Setup_JCK_Multinode with CLEAN_DIR=true for ( ci.role.test )
 - [ ] Disable Setup JCK_MUltinode To Ensure Test Evidence Is Not Lost
-- [ ] Check the nagios server to ensure there are no critical infrastructure issues
+- [ ] As detailed earlier, again check the nagios server to ensure there are no critical infrastructure issues
 - [ ] Create The Github Issues for tracking progress against each Java version
 
-The following steps have all been automated ( with the exception of manually triggering the JDK8 AARCH32 build, which must be done seperately when the tags are available )
+On ReleaeThe following steps have all been automated ( with the exception of manually triggering the JDK8 AARCH32 build, which must be done seperately when the tags are available )
+
+#### Release Day Onwards
 
 - [ ] **Check Tags have been released upstream** - Look for mailing list announcements and `-ga` tags in version control.
 - [ ] Check the published GA tags are the "expected" tags entered in the aqa-tests release branch testenv.properties. If they are not then update.
@@ -151,6 +155,7 @@ The following steps have all been automated ( with the exception of manually tri
       - rerun(s):
     - **secondary jdkxx pipeline:**
       - rerun(s):
+- [ ] **Check Upstream Tags, Mirror Tags & Trigger Builds For JDK8 AARCH32** This specific version is built from a separate mirror repository and has a separate build process, this is CURRENTLY not part of the automation which is handled for the other platforms and version. Also note that there is a seperate properties file (testenv_arm32.properties) which needs to be updated.
 - [ ] **Add links to the [status doc](https://github.com/adoptium/adoptium/issues/TEMPLATE_UPDATEME)** to indicate per-platform builds ready
 - [ ] **Summarize test results**.  Find each launched build pipeline in [TRSS](https://trss.adoptium.net/) to view a summary of test results.  Can use the Release Summary Report feature in TRSS to generate a summary of failures, history and possible issues in markup format to be added to this issue as a comment.
 - [ ] **Triage** each build and test failure in the release summary report (following the [Triage guidelines](https://github.com/adoptium/aqa-tests/blob/master/doc/Triage.md)) and determine blocking or non-blocking.  Supply links to triage issues or docs for each version here.
