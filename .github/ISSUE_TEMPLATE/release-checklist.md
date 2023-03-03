@@ -166,7 +166,8 @@ Release Week Checklist:
 - [ ] **Fix** blocking failures if they exist and confirm others are non-blocking.
 - [ ] **Confirm Temurin-compliance items completed**, per platform/version/binaryType
 - [ ] **Get PMC 'ready to publish' approval**, once no blocking failures exist.
-- [ ] **Publish the release** (run the restricted access [release tool job](https://ci.adoptopenjdk.net/job/build-scripts/job/release/job/refactor_openjdk_release_tool/) on Jenkins)
+- [ ] **Generate The Release Notes Per JDK Version **, ( Use https://ci.adoptium.net/job/create_release_notes/ )
+- [ ] **Publish the release** (run the restricted access [release tool job](https://ci.adoptopenjdk.net/job/build-scripts/job/release/job/refactor_openjdk_release_tool/) on Jenkins) ( also publish release notes )
 - [ ] **Verify binaries published successfully** to github releases repo and website (_automate_*, this could also be an automated test)
 
 - [ ] **Publish updates to the containers to dockerhub**
