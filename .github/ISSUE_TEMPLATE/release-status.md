@@ -62,8 +62,8 @@ Sharing information in this issue since the TCK work is being tracked in temurin
 | x64 alpine-Linux | ⏸️  | ⏸️         | ⏸️              | ⏸️                | ⏸️            | This will be a headless build |
 | aarch64 Mac | ⏸️       | ⏸️         | ⏸️              | ⏸️                | ⛔           |       |
 
-### JDK18.0.XX+Y
-| Platform  | jdk18 AQA | jdk18 TCK | jdk18 published| jdk18 installers | jdk18 images  | Notes |
+### JDK20.0.XX+Y
+| Platform  | jdk20 AQA | jdk20 TCK | jdk20 published| jdk20 installers | jdk20 images  | Notes |
 | -----     | -----     | -----     | -----          | -----            | -----         | ----- |
 | **x64 Linux** | ⏸️     | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
 | **x64 Windows** | ⏸️   | ⏸️         | ⏸️              | ⏸️                | ⏸️             |       |
