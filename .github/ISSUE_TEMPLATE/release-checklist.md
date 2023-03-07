@@ -50,6 +50,8 @@ create branches in the following adoptium source repositories :-
 These branches should be named according to the following format (vYYYY.MM.NN) ,e.g v2023.03.01 , whereby the final element is an incremental counter appended to the year and month of the release.
 
  - [ ] **Identify the aqa branch name for the upcoming release**
+ - [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
+ - [ ] TC: Run the Setup_JCK_Run_Multinode job with CLEAN_DIR=true (to purge any old release contents/results) on all ci.role.test nodes, this will extract the jck_run folder with all the temurin.jtx exclude files, verify all nodes successful : https://ci.eclipse.org/temurin-compliance/job/Setup_JCK_Run_Multinode/build?delay=0sec
 
  - [ ] **Check the nagios server to ensure there are no critical infrastructure issues**
 	 Log in to the public [nagios](https://nagios.adoptopenjdk.net/nagios/) server, and check the Problems / Services page. If you do not have access, please request it via an issue in the infrastructure repository. If there are any issues, then please log an issue in the infrastructure repository.
@@ -98,8 +100,8 @@ If you need to submit a pr for any of these repos during this period, you should
 	 - installer https://github.com/adoptium/installer
 	 - mirror-scripts https://github.com/adoptium/mirror-scripts
 
-- [ ] **Disable standard & evaluation nightly builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week
-- [ ] **Disable standard & evaluation weekend builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during the weekend prior to release, helps ensure no long running weekend jobs take critical resources during the beginning of the release period.
+- [ ] **Disable standard & evaluation nightly builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during release week. This should be done by setting the default for ENABLE_PIPELINE_SCHEDULE to false in the [https://ci.adoptium.net/job/build-scripts/job/utils/job/build-pipeline-generator/](https://ci.adoptium.net/job/build-scripts/job/utils/job/build-pipeline-generator/), and then re-running it.
+- [ ] **Disable standard & evaluation weekend builds completely** by disabling the pipelines temporarily to free up resources and ensure no competing jobs during the weekend prior to release, helps ensure no long running weekend jobs take critical resources during the beginning of the release period. This should be done by setting the default for ENABLE_PIPELINE_SCHEDULE to false in the [https://ci.adoptium.net/job/build-scripts/job/utils/job/build-pipeline-generator/](https://ci.adoptium.net/job/build-scripts/job/utils/job/build-pipeline-generator/), and then re-running it.
 - [ ] **Update aqaReference** to update with new git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
  - [ ] **Prepare For Release**
 >  - Double check the relevent aqa-tests branch version, ensure git branch for 'aqaReference' to be used in release pipeline: https://github.com/adoptium/aqa-tests/branches (branch name to use should match the name of the [latest aqa-tests release](https://github.com/adoptium/aqa-tests/releases/latest))
