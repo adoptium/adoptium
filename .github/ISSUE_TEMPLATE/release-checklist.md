@@ -28,6 +28,7 @@ Everyone participating in a release, including the release champion are requeste
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
 - [ ] **Release Checklist Created**  Create this issue to track the release and the preparation tasks.
 - [ ] **Identify Expected Release Versions** - Find out the version numbers from [here](https://www.java.com/releases/)
+- [ ] **Check/update temurin-build NOTICE file template source repository list** (https://github.com/adoptium/temurin-build/blob/5c7ebf540e2ee298392acc362f0a1f705a0695a2/sbin/NOTICE.template#L41)
 - [ ] **Issue Code Freeze Early Warning For None Branched Repos**
 
 Paste a message similar to the example below In the Adoptium [build](https://adoptium.slack.com/archives/C09NW3L2J)  and  [release](https://adoptium.slack.com/archives/CLCFNV2JG) slack channels
