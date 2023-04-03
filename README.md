@@ -24,7 +24,7 @@ subgraph Eclipse Adoptium
     style public fill:#CFE1F3,stroke:#333,stroke-width:4px,color:#000000
     style private fill:#FF0000,stroke:#333,stroke-width:4px,color:#000000
     subgraph Adoptium
-        AdoptiumTrigger[adoptium]:::public --- website["website-v2"]:::public --- api["api.adoptium.net"]:::public --- blog["blog.adoptium.net"]:::public --- dash["dash.adoptium.net"]:::public
+        AdoptiumTrigger[adoptium]:::public --- website["adoptium.net"]:::public --- api["api.adoptium.net"]:::public --- blog["blog.adoptium.net"]:::public --- dash["dash.adoptium.net"]:::public
     end
     subgraph Temurin
         subgraph Build
