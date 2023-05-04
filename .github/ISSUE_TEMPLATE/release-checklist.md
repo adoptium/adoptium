@@ -68,6 +68,8 @@ Ensure ALL nodes online prior to running these following TC steps:
 > https://github.com/zdtsw/mirror-scripts/tree/issue/3167#skara-repos-and-processes
 >  - Update The AQA Branch ( e.g. ) https://raw.githubusercontent.com/adoptium/aqa-tests/v0.9.6-release/testenv/testenv.properties with the expected tags.
 
+ - [ ] **Triage dry-run TCK job results**
+ - [ ] **Perform TCK Auto-manuals on x64Linux for each dry-run version**
 
 ### One Week Prior To Release
 - [ ] **Final Code Freeze Warning** post a message similar to below to the build & release slack channels
