@@ -52,7 +52,7 @@ These branches should be named according to the following format (vYYYY.MM.NN) ,
  - [ ] **Identify the aqa branch name for the upcoming release**
 
 Ensure ALL nodes online prior to running these following TC steps:
- - [ ] TC: Run the DeleteJCKMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/DeleteJCKMultiNode
+ - [ ] TC: Run the DeleteJCKMultiNode process cleaning job on all ci.role.test nodes, to remove any now redundent jck-versions, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/DeleteJCKMultiNode
  - [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
  - [ ] TC: Run the Setup_JCK_Run_Multinode job with CLEAN_DIR=true (to purge any old release contents/results) on all ci.role.test nodes, this will extract the jck_run folder with all the temurin.jtx exclude files, verify all nodes successful : https://ci.eclipse.org/temurin-compliance/job/Setup_JCK_Run_Multinode/build?delay=0sec
 
