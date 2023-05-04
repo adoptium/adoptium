@@ -50,6 +50,9 @@ create branches in the following adoptium source repositories :-
 These branches should be named according to the following format (vYYYY.MM.NN) ,e.g v2023.03.01 , whereby the final element is an incremental counter appended to the year and month of the release.
 
  - [ ] **Identify the aqa branch name for the upcoming release**
+
+Ensure ALL nodes online prior to running both these following steps:
+ - [ ] TC: Run the DeleteJCKMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/DeleteJCKMultiNode
  - [ ] TC: Run the ProcessCheckMultiNode process cleaning job on all ci.role.test nodes, to ensure healthy state, verify all nodes successful: https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/build?delay=0sec
  - [ ] TC: Run the Setup_JCK_Run_Multinode job with CLEAN_DIR=true (to purge any old release contents/results) on all ci.role.test nodes, this will extract the jck_run folder with all the temurin.jtx exclude files, verify all nodes successful : https://ci.eclipse.org/temurin-compliance/job/Setup_JCK_Run_Multinode/build?delay=0sec
 
@@ -182,5 +185,6 @@ Release Week Checklist:
 - [ ] **Disable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && true` to be `if: github.repository_owner == 'adoptium' && false` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
 - [ ] **Remove website banner** (_automate_* via github workflow in website repository)
 - [ ] **Check for presence of jdk8u aarch32 GA tag and mirror it** [Mercurial repo](https://hg.openjdk.java.net/aarch32-port/jdk8u) - [Mirror job](https://ci.adoptopenjdk.net/view/git-mirrors/job/git-mirrors/job/adoptium/job/git-hg-aarch32-jdk8u/)
-- [ ] **Do all of the above for the jdk8u/aarch32 build**
+- [ ] **Do all of the above for the jdk8u/aarch32 build: Ensure to specify overridePublishName param**
+- [ ] **Archive/upload all TCK results**
 - [ ] **Declare the release complete** and close this issue
