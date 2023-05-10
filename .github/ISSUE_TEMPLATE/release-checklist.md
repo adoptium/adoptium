@@ -138,7 +138,7 @@ Release Week Checklist:
 - [ ] Disable Setup_JCK_Multinode To Ensure Test Evidence Is Not Lost
 - [ ] As detailed earlier, again check the nagios server to ensure there are no critical infrastructure issues
 - [ ] Create the Github Issues for tracking progress against each Java version
-- [ ] Create the Github issues for the Adoptium public retro & TC retro
+- [ ] Create the Github issues for the Adoptium public retro & TC retroes
 - [ ] Update the links on the slack channel for the release status and retrospective issues.
 
 #### Release Day Onwards
@@ -190,3 +190,4 @@ Release Week Checklist:
 - [ ] **Do all of the above for the jdk8u/aarch32 build: Ensure to specify overridePublishName param**
 - [ ] **Archive/upload all TCK results**
 - [ ] **Declare the release complete** and close this issue
+- [ ] **Re-enable testing: Once the release is deployed, don't forget to re-enable any testing that was disabled during the release process to ensure that the system is working as expected. This includes unit tests, integration tests, end-to-end tests, and any other testing that was temporarily paused. Be sure to validate that all tests are running successfully before considering the release complete.**
