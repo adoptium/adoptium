@@ -190,3 +190,4 @@ Release Week Checklist:
 - [ ] **Do all of the above for the jdk8u/aarch32 build: Ensure to specify overridePublishName param**
 - [ ] **Archive/upload all TCK results**
 - [ ] **Declare the release complete** and close this issue
+- [ ] **Re-enable testing: Once the release is deployed, don't forget to re-enable any testing that was disabled during the release process to ensure that the system is working as expected. This includes unit tests, integration tests, end-to-end tests, and any other testing that was temporarily paused. Be sure to validate that all tests are running successfully before considering the release complete.**
