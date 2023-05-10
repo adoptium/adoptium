@@ -9,7 +9,7 @@ assignees: ''
 
 **NOTE: Items marked `jdkxx` and `TEMPLATE_UPDATEME` should be replaced while deploying this issue template. It is recommended to delete this line once you've done so :-)**
 
-This Temurin release checklist based on the [release doc](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md) captures what activities must happen during a release.  
+This Temurin release checklist based on the [release doc](https://github.com/adoptium/temurin-build/blob/master/RELEASING.md) captures what activities must happen during a release.
 
 The target release date is: _________
 
@@ -28,7 +28,7 @@ Everyone participating in a release, including the release champion are requeste
 - [ ] **Release Champion named** whose responsibility is to ensure every item in this checklist gets completed
 - [ ] **Release Checklist Created**  Create this issue to track the release and the preparation tasks.
 - [ ] **Identify Expected Release Versions** - Find out the version numbers from [here](https://www.java.com/releases/)
-- [ ] **Issue Code Freeze Early Warning For None Branched Repos**
+- [ ] **Issue Code Freeze Early Warning For Non-Branched Repos**
 
 Paste a message similar to the example below In the Adoptium [build](https://adoptium.slack.com/archives/C09NW3L2J)  and  [release](https://adoptium.slack.com/archives/CLCFNV2JG) slack channels
 
@@ -99,7 +99,7 @@ If you need to submit a pr for any of these repos during this period, you should
 </details>
 
  - [ ] **Enable code freeze bot** In order to enable the code freeze GitHub you need to change the line `if: github.repository_owner == 'adoptium' && false` to be `if: github.repository_owner == 'adoptium' && true` in the [code-freeze.yml](https://github.com/adoptium/.github/blob/main/.github/workflows/code-freeze.yml#L21) GitHub workflow. Please contact the PMC if you need help merging this change.
- - [ ] **Freeze The Non Tagged Repositories** implement code freeze on the following repositories : 		
+ - [ ] **Freeze The Non Tagged Repositories** implement code freeze on the following repositories :
 	 - github-release-scripts https://github.com/adoptium/github-release-scripts
 	 - containers https://github.com/adoptium/containers
 	 - installer https://github.com/adoptium/installer
@@ -135,10 +135,10 @@ Release Week Checklist:
 - [ ]   -- Check All Nodes Online https://ci.eclipse.org/temurin-compliance/label/ci.role.test/
 - [ ]  Run https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/ -- with defaults
 - [ ] Run Setup_JCK_Multinode with CLEAN_DIR=true for ( ci.role.test )
-- [ ] Disable Setup JCK_MUltinode To Ensure Test Evidence Is Not Lost
+- [ ] Disable Setup_JCK_Multinode To Ensure Test Evidence Is Not Lost
 - [ ] As detailed earlier, again check the nagios server to ensure there are no critical infrastructure issues
 - [ ] Create the Github Issues for tracking progress against each Java version
-- [ ] Create the Github issues for the Adoptium public retro & TC retroes
+- [ ] Create the Github issues for the Adoptium public retro & TC retro
 - [ ] Update the links on the slack channel for the release status and retrospective issues.
 
 #### Release Day Onwards
