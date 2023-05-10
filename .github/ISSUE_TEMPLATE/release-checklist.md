@@ -138,7 +138,7 @@ Release Week Checklist:
 - [ ] Disable Setup_JCK_Multinode To Ensure Test Evidence Is Not Lost
 - [ ] As detailed earlier, again check the nagios server to ensure there are no critical infrastructure issues
 - [ ] Create the Github Issues for tracking progress against each Java version
-- [ ] Create the Github issues for the Adoptium public retro & TC retroe
+- [ ] Create the Github issues for the Adoptium public retro & TC retro
 - [ ] Update the links on the slack channel for the release status and retrospective issues.
 
 #### Release Day Onwards
