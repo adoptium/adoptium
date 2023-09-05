@@ -88,7 +88,7 @@ Release Week Checklist:
 - [ ]   -- Check All Nodes Online https://ci.eclipse.org/temurin-compliance/label/ci.role.test/
 - [ ]  Run https://ci.eclipse.org/temurin-compliance/job/ProcessCheckMultiNode/ -- with defaults
 - [ ] Run Setup_JCK_Multinode with CLEAN_DIR=true for ( ci.role.test )
-- [ ] Disable Setup_JCK_Multinode To Ensure Test Evidence Is Not Lost
+- [ ] Disable Setup_JCK_Run_Multinode To Ensure Test Evidence Is Not Lost
 - [ ] As detailed earlier, again check the nagios server to ensure there are no critical infrastructure issues
 - [ ] Create the Github Issues for tracking progress against each Java version
 - [ ] Create the Github issues for the Adoptium public retro & TC retro
