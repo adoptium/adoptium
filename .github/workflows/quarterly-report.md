@@ -36,8 +36,8 @@ Generate a ranked report of contributor activity across the **adoptium** GitHub 
 - Suggested next steps or items needing maintainer attention heading into the next quarter.
 
 ## Process
-1. Enumerate the public repositories in the `adoptium` organization.
-2. Collect commits, pull requests, issues closed, and code reviews submitted in the last 90 days.
+1. Enumerate **all** public repositories in the `adoptium` organization. Use pagination (fetch up to 100 repositories per page and continue fetching subsequent pages) until all repositories have been collected before proceeding. Do not stop after the first page of results.
+2. For each repository collected in step 1, collect commits, pull requests, issues closed, and code reviews submitted in the last 90 days.
 3. Classify each contribution by type (bug fix, feature, refactor, docs, etc.) and score by estimated impact.
 4. Aggregate into one concise ranked report and create a single GitHub issue in this repository.
 
