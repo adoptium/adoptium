@@ -53,7 +53,7 @@
 name: "Adoptium FAQ Review"
 on:
   schedule:
-  - cron: "26 2 * * 3"
+  - cron: "5 11 * * 1"
     # Friendly format: weekly (scattered)
   workflow_dispatch:
     inputs:

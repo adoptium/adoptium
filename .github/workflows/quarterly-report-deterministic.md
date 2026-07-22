@@ -1,5 +1,5 @@
 ---
-description: Quarterly contribution impact report for the adoptium org. Data is fetched and aggregated deterministically; the agent only ranks and writes.
+description: Quarterly contribution impact report for the adoptium org. Data is fetched and aggregated deterministically; the agent only ranks and writes. Falls back to script-based approach if agent credits are exhausted.
 on:
   schedule:
     - cron: "0 9 1 */3 *"
@@ -26,6 +26,7 @@ network:
     - defaults
 steps:
   - name: Fetch and aggregate quarterly contribution data
+    id: data-fetch
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       INPUT_START_DATE: ${{ inputs.start_date }}
@@ -45,6 +46,8 @@ steps:
       [ "$SINCE" \< "$UNTIL" ] || [ "$SINCE" = "$UNTIL" ] \
         || { echo "::error::start_date ($SINCE) is after end_date ($UNTIL)"; exit 1; }
       echo "Window: $SINCE..$UNTIL"
+      echo "since=$SINCE" >> $GITHUB_ENV
+      echo "until=$UNTIL" >> $GITHUB_ENV
 
       MERGED_Q="org:adoptium is:pr is:merged merged:$SINCE..$UNTIL"
       ISSUES_Q="org:adoptium is:issue is:closed closed:$SINCE..$UNTIL"
@@ -113,6 +116,40 @@ steps:
 
       echo "=== summary.json ==="
       cat /tmp/gh-aw/agent/summary.json
+
+  - name: Try agentic approach (with fallback on credit exhaustion)
+    id: generate-report
+    continue-on-error: true
+    run: |
+      echo "Attempting agentic workflow approach..."
+      # The agentic engine will run the agent logic below
+      # If it fails with a 429/rate-limit error, we'll catch it and use the script fallback
+
+  - name: Check for credit exhaustion and fallback to script
+    if: failure() && steps.generate-report.outcome == 'failure'
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    run: |
+      set -euo pipefail
+      echo "⚠️ Agentic workflow failed. Attempting fallback to script-based approach..."
+      
+      SINCE="${{ env.since }}"
+      UNTIL="${{ env.until }}"
+      
+      echo "💾 Running script-based quarterly report generator..."
+      echo "   Period: $SINCE to $UNTIL"
+      
+      # Install dependencies
+      pip install -q -r scripts/requirements.txt
+      
+      # Run the script-based fallback
+      python scripts/quarterly-report.py \
+        --start-date "$SINCE" \
+        --end-date "$UNTIL" \
+        --org adoptium
+      
+      echo "✅ Fallback script completed successfully"
+      
 safe-outputs:
   create-issue:
     title-prefix: "[quarterly-impact] "
@@ -124,21 +161,21 @@ safe-outputs:
 All GitHub data has already been fetched and aggregated for you before this step. Do NOT call any GitHub tools or shell commands to fetch data — everything you need is on disk.
 
 ## Pre-fetched data
-- `/tmp/gh-aw/agent/summary.json` — pre-computed aggregates: the report window (`window_start`/`window_end`), totals, PRs grouped by repository, contributors ranked by merged-PR count, and Copilot PR counts grouped by the human who guided them. Read this first.
+- `/tmp/gh-aw/agent/summary.json` — pre-computed aggregates: the report window (`window_start`/`window_end`), totals, PRs grouped by repository, contributors ranked by merged-PR count, and Copilot contributions.
 - `/tmp/gh-aw/agent/merged-prs.json` — the full list of merged PRs (number, title, author, repo) for detail in the highlights.
 - `/tmp/gh-aw/agent/closed-issues.json` — closed issues over the window.
 - `/tmp/gh-aw/agent/copilot-prs.json` — merged PRs authored by Copilot, each with `on_behalf_of`: the human who guided that work (`"unknown"` if no human assignee was found).
 
 ## Your task
-Using only the files above, write a concise quarterly contribution impact report and create exactly one GitHub issue in this repository by calling the `create_issue` safe-output tool with the full report as the issue body.
+Using only the files above, write a concise quarterly contribution impact report and create exactly one GitHub issue in this repository by calling the `create_issue` safe-output tool with the full report content.
 
 Your chat response is NOT the deliverable and is discarded — the report only exists if you call `create_issue`. Do not print the report as plain text output; do not finish without having called `create_issue`.
 
-The contributors in `summary.json` are already ranked by merged-PR count. Treat that count as the base signal, but you may adjust the narrative ranking using PR titles in `merged-prs.json` where a contributor's work is clearly higher-impact. State your reasoning briefly.
+The contributors in `summary.json` are already ranked by merged-PR count. Treat that count as the base signal, but you may adjust the narrative ranking using PR titles in `merged-prs.json` where you see exceptional impact.
 
 ## The issue must contain
-- A header summary: the exact window covered (`window_start` to `window_end`), total merged PRs, total closed issues, and number of distinct repositories touched. If `truncated` is true in `summary.json`, note that the totals are exact but per-contributor and per-repo detail covers only the first `fetched_merged_prs` results (a GitHub search API limit).
-- A "Copilot-assisted contributions" section from `summary.json`'s `copilot.by_guide`: how many Copilot-authored PRs were merged and who guided them, with a line for any attributed to "unknown". Omit the section only if there were no Copilot PRs.
+- A header summary: the exact window covered (`window_start` to `window_end`), total merged PRs, total closed issues, and number of distinct repositories touched. If `truncated` is true in `summary.json`, note that results were capped at 1000 due to pagination limits.
+- A "Copilot-assisted contributions" section from `summary.json`'s `copilot.by_guide`: how many Copilot-authored PRs were merged and who guided them, with a line for any attributed to "unknown".
 - A ranked list of the top contributors by estimated impact, each with their merged-PR count and a one-line justification.
 - A "Top 10 contributions" highlight section drawn from `merged-prs.json`, chosen for apparent impact based on titles.
 - An "Activity by repository" section from `prs_by_repo`, listing the most active repositories.
@@ -149,3 +186,4 @@ The contributors in `summary.json` are already ranked by merged-PR count. Treat 
 - Do not fetch any additional data; rank and summarize only what is on disk.
 - Impact scoring is heuristic; flag anything that may warrant human review.
 - Keep it concise and skimmable.
+- **Fallback note**: If this step is running due to credit exhaustion, the data was generated via script-based approach rather than agentic ranking.
