@@ -222,14 +222,14 @@ For every issue body and every comment body:
 - Split only at line boundaries.
 - If unsure, split into smaller parts.
 
-After splitting, calculate `N` as the number of parts.
+After splitting, calculate `N` as the total number of parts.
 
-Use labels like:
+Use labels like (where N is the total number of parts):
 
 ```text
-Part 1 of N
-Part 2 of N
-Part 3 of N
+Part 1 of 3
+Part 2 of 3
+Part 3 of 3
 ```
 
 Do not use `N = ceil(total characters / 60000)`. That is too large.
