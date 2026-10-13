@@ -15,6 +15,7 @@ on:
         type: string
 engine:
   id: copilot
+  model: gpt-4o
 timeout-minutes: 30
 permissions:
   contents: read
