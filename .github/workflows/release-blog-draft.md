@@ -27,6 +27,7 @@ on:
 
 engine:
   id: copilot
+  model: gpt-4.1
 
 timeout-minutes: 20
 
